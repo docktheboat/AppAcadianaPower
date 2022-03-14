@@ -1,0 +1,129 @@
+/* ------------------- Page ----------------- */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ------------------- Outage card ------------------- */
+.vert-card #midCard a{
+    border-right: 1px solid gray;
+   /* padding-right: 15px;
+    padding-left: 15px;*/
+    display: inline-grid;
+    text-align: center;
+}
+
+
+.vert-card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 100px;
+    height:75px;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.vert-card #leftCard, #midCard, #rightCard {
+    padding: 20px;
+
+}
+
+.vert-card #leftCard{
+    float: left;
+   /* padding-right: 20px; */
+}
+.vert-card #midCard {
+    float: left;
+    height: 46.5%;
+    width: 66.5%;
+    border-left: 0.5px solid gray;
+    border-right: 0.5px solid gray;
+}
+.vert-card #rightCard {
+   /* float: right; */
+   float: left;
+    width: 10%;
+}
+
+
+/* -------------------- Grid ---------------- */
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    /*grid-auto-rows: minmax(200px, auto);*/
+  }
+  .one {
+    grid-column: 1/2;
+    grid-row: 1;
+    height: auto;
+    margin: auto;
+    text-align: center;
+  }
+  .two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+    background-color: white;
+    height: auto;
+    width:auto;
+  }
+
+/* ------------------- Add Form ---------------- */
+#outageType{
+width:165px;
+}
+
+#zipCode{
+  width:165px;
+}
+#toggle {
+  border-bottom: 1px solid gray;
+}
+
+
+
+/* ------------------ Header ---------------- */
+h1{
+    height: 50px;
+    background-color: white;
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+    border-bottom: 1px solid black;
+
+}
+
+/* ------------------ Footer ------------------ */
+footer{
+    position: static;
+    bottom: 0;
+    width:100%;
+    height:50px;
+    background-color: black;
+    color: rgb(173, 207, 201);
+}
+
+
+
+/* ---------------- Icons ---------------- */
+#elecIcon{
+    color: rgb(204, 204, 67);
+    font-size: 27px;
+}
+
+/* ------------------------- Buttons --------------- */
+
+#delButton {
+    background-color: rgb(224, 69, 69);
+    color:rgb(252, 252, 235);
+    border: none;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+}
+#formButton{
+  height:37.5px;
+  width:75px;
+}
+
