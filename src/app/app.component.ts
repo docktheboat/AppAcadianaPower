@@ -1,74 +1,8 @@
-import { Outage } from './outage';
-import { OutageService } from './outage.service';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NgForm } from '@angular/forms';
-
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  public outages : Outage[] | undefined
-  public message : String | undefined
-
-  constructor(private outageService : OutageService){
-    
-  }
-
-  ngOnInit(): void {
-    this.getOutages();
-  }
-
-
-  public getOutages() {
-    this.outageService.getOutages().subscribe(
-      (response : Outage[]) => {
-        this.outages = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message)
-      }
-    )
-  }
-
-  public getOutagesByRecovery() {
-    this.outageService.getByRecovery().subscribe(
-      (response : Outage[]) => {
-        this.outages = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message)
-      }
-    )
-  }
-
-  public deleteOutage(type:String,zipCode:number) {
-    this.outageService.deleteOutage(type,zipCode).subscribe(
-      (response : void) => {
-        this.getOutages();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message)
-      }
-    )
-  }
-
-  public addOutage(form : NgForm) {
-    this.outageService.addOutage(form.value).subscribe(
-      (response : String) => {
-        this.message = response;
-        this.getOutages();
-      },
-      (error: HttpErrorResponse) => {
-       /* alert(error.message)*/
-       this.getOutages();
-      }
-    )
-  }
-
-  
-}
+export class AppComponent {}

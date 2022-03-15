@@ -1,85 +1,30 @@
 
-<!--{{out.recoveryTime.get("hrs")}}/{{out.recoveryTime.get("mins")}}mins -->
-
-
 <h1><u>Acadiana Power</u></h1>
 
 
-<div class="wrapper">
-    <div class="one">
-
-        <p><u>Filter By</u></p>
-<mat-button-toggle-group name="filterToggle" aria-label="filter" id="toggle">
-  <mat-button-toggle (click)="getOutagesByRecovery()" >Recovery</mat-button-toggle>
-  <mat-button-toggle >Creation</mat-button-toggle>
-</mat-button-toggle-group>
-
-<br>
-<br>
-
-
-<p><u>Create A New Outage</u></p>
-<form #addForm="ngForm" (ngSubmit)="addOutage(addForm)"> 
-
-    <div class ="form-group" >
-        <label for="outageType">Type</label>
-        <input ngModel name="outageType"  id="outageType"  type="text" class="form-control">
-       <!-- <div *ngIf="email.invalid">Email is required</div>-->
-      </div>
-      <br>
-    <div class ="form-group">
-      <label for="zipCode">Zipcode</label>
-    <input  ngModel name="zipCode" id="zipCode" type="number" class="form-control">
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/Login">Login</a>
+        <a class="nav-item nav-link" routerLink="/Register">Sign Up</a>
+        <a class="nav-item nav-link" routerLink="/Dashboard">Dashboard</a>
+        <a class="nav-item nav-link" routerLink="/Admin">Admin Home</a>
+        <a class="nav-item nav-link" routerLink="/Customer">Admin Customer</a>
+        <a class="nav-item nav-link" routerLink="/Outages">Admin Outages</a>
     </div>
-    <br>
-    <button  id="formButton" type="submit" class="btn btn-primary">Create</button>
-  </form>
-    </div>
-<br>
+</nav>
 
-
-
-    <div class="two" >
-        
-        <br>
-      
-        <div class="card-container" *ngFor="let out of outages">
-        <div class = "vert-card" >
-            <p id="leftCard"><i id="elecIcon" class="fa-solid fa-bolt"></i></p>
-            <p id="midCard">
-                <a>
-                    Type: {{out.outageType}}
-            </a>
-            <a>
-                Zipcode: {{out.zipCode}}
-            </a>
-            <a>
-                Created At: {{out.creationTime}}
-            </a>
-            <a>
-               Recovery
-            </a>
-            
-            </p>
-            <p id="rightCard">
-                <button (click)="deleteOutage(out.outageType,out.zipCode)" id="delButton" 
-                 type="button">delete</button>
-            </p>
-            <br>
+<!-- main content container -->
+<!--<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">-->
+                <router-outlet></router-outlet>
+         <!--   </div>
         </div>
-
     </div>
-
-        <br>
-    </div>
-    <br>
-    </div>
+</div>-->
 
 
 <footer>Providing Utility Services Since 2022</footer>
-
-
-
-
-        
-
