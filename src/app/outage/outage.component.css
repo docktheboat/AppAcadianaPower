@@ -11,7 +11,7 @@
 .vert-card{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    border-radius: 100px;
+    border-radius: 2px;
     height:75px;
     width: 75%;
     margin: auto;
@@ -42,6 +42,19 @@
 .card-container{
   float: right;
 }
+
+.noOutages{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 15px;
+  height:150px;
+  width: 300px;
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 25px;
+}
+
 
 /* -------------------- Grid ---------------- */
 .wrapper {
@@ -85,7 +98,10 @@ width:165px;
     color: rgb(204, 204, 67);
     font-size: 27px;
 }
-
+#boxIcon{
+  font-size: 50px;
+  padding-top: 25px;
+}
 /* ------------------------- Buttons --------------- */
 
 #delButton {
