@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class OutageComponent implements OnInit{
   public outages : Outage[] | undefined
-  public message : String | undefined
+  public addmessage : String | undefined
 
   constructor(private outageService : OutageService){
     
@@ -46,6 +46,17 @@ export class OutageComponent implements OnInit{
     )
   }
 
+  public getByCreation(){
+    this.outageService.getByCreation().subscribe(
+      (response : Outage[]) => {
+        this.outages = response;
+      },
+      (error : HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
+  }
+
   public deleteOutage(type:String,zipCode:number) {
     this.outageService.deleteOutage(type,zipCode).subscribe(
       (response : void) => {
@@ -60,7 +71,7 @@ export class OutageComponent implements OnInit{
   public addOutage(form : NgForm) {
     this.outageService.addOutage(form.value).subscribe(
       (response : String) => {
-        this.message = response;
+        this.addmessage = response;
         this.getOutages();
       },
       (error: HttpErrorResponse) => {
