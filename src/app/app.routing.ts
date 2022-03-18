@@ -2,13 +2,11 @@ import {Routes, RouterModule} from '@angular/router';
 import { AdminComponent } from './admin';
 import { CustomerComponent } from './customer';
 import { OutageComponent } from './outage';
-import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { UserComponent } from './user';
 
 const routes: Routes = [
-    {path: '', component: HomeComponent},
     {path: 'Admin', component: AdminComponent},
     {path: 'Customer', component: CustomerComponent},
     {path: 'Outages', component: OutageComponent},

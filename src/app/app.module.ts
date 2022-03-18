@@ -12,18 +12,21 @@ import { OutageComponent } from './outage';
 import { AdminComponent } from './admin';
 import { CustomerComponent } from './customer';
 import { appRoutingModule } from './app.routing';
-import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register';
 import { UserComponent } from './user';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
     OutageComponent,
     AdminComponent,
     CustomerComponent,
-    HomeComponent,
     LoginComponent,
     AppComponent,
     RegisterComponent,
@@ -41,6 +44,9 @@ import { UserComponent } from './user';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonToggleModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
     appRoutingModule
   ],
   providers: [OutageService],
