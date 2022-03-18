@@ -24,6 +24,17 @@ ngOnInit(): void {
     this.getCustomers()
 }
 
+public getCustomersByZipCode(zipCode : number){
+    this.customerService.getCustomersByZipCode(zipCode).subscribe(
+        (response : Customer[]) => {
+            this.customers = response;
+        },
+        (error : HttpErrorResponse) => {
+            alert(error.message);
+        }
+
+    )
+}
 
 public getCustomers(){
     this.customerService.getCustomers().subscribe(
