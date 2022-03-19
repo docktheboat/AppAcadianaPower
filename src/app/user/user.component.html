@@ -1,5 +1,36 @@
-<h1>User DashBoard</h1>
+<div class="wrapper">
+   <div class="one">
+
+    <!--
+      Content for left side
+    -->
 
 
-<iframe src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
+   </div>
+   <div class="two">
+
+<div class="widget" >
+            
+   <div class="left-panel panel" *ngFor="let w of weatherInfo">
+
+       <div class="city">
+           Lafayette, LA
+       </div>
+       <div class="temp">
+         {{w.temperature}}&deg;
+       </div>
+       <div class = "info">
+        <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
+       </div>
+   </div>
+   <div class="right-panel panel">
+       <i id="wIcon" class={{iconClass}}></i>
+   </div>
+
+</div>
+
+<iframe id="radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
 width="330" height="330"></iframe>
+</div>
+</div>
+
