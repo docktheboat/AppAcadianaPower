@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-root',
+ // selector: 'app-root',
   templateUrl: './outage.component.html',
   styleUrls: ['./outage.component.css']
 })
