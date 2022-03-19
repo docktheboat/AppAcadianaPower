@@ -9,7 +9,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { OutageService } from './outage/outage.service';
 import { OutageComponent } from './outage';
-import { AdminComponent } from './admin';
 import { CustomerComponent } from './customer';
 import { appRoutingModule } from './app.routing';
 import { LoginComponent } from './login';
@@ -25,7 +24,6 @@ import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     OutageComponent,
-    AdminComponent,
     CustomerComponent,
     LoginComponent,
     AppComponent,
