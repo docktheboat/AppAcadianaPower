@@ -1,23 +1,23 @@
 <?php
 // Include config file
-require_once "config.php";
-
+include "shared.php";
+config();
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
-
+top();
+$username = $password = $confirm_password = $zipcode = "";
+$username_err = $password_err = $confirm_password_err = $zip_err ="";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate username
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
+        $username_err = "Please enter an email.";
+    } elseif(!preg_match('/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/', trim($_POST["username"]))){
+        $username_err = "Please enter a valid email format.";
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
-
+        $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    $username_err = "There is already an account with this email address.";
                 } else{
                     $username = trim($_POST["username"]);
                 }
@@ -43,7 +43,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
+    // Validate zip code starting with 71 or 72
+    if(empty(trim($_POST["zip"]))){
+        $zip_err = "Please enter a Zip Code.";
+    } elseif(!preg_match('/[7][0-1]\d{3}\b/', trim($_POST["zip"]))){
+        $zip_err = "Please enter a Louisiana 5 digit zip code";
+    }
+    else {
+        // Prepare a select statement
+        $sql = "SELECT id FROM users WHERE zip = ?";
+        $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_zip);
 
+            // Set parameters
+            $param_zip = trim($_POST["zip"]);
+
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
+
+                $zip = trim($_POST["zip"]);
+
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";
@@ -67,11 +98,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-
+        $sql = "INSERT INTO users (username, password,zip) VALUES (?, ?, ?)";
+        $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_zip);
 
             // Set parameters
             $param_username = $username;
@@ -88,10 +119,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
+        // Close connection
+        mysqli_close($link);
     }
 
-    // Close connection
-    mysqli_close($link);
 }
 ?>
 
@@ -112,9 +143,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <p>Please fill this form to create an account.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-            <label>Username</label>
+            <label>Email</label>
             <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group">
+            <label>Zip Code</label>
+            <input type="text" name="zip" class="form-control <?php echo (!empty($zip_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $zipcode; ?>">
+            <span class="invalid-feedback"><?php echo $zip_err; ?></span>
         </div>
         <div class="form-group">
             <label>Password</label>
@@ -133,5 +169,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Already have an account? <a href="login.php">Login here</a>.</p>
     </form>
 </div>
-</body>
-</html>
+<?php bottom(); ?>

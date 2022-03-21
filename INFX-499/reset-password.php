@@ -1,7 +1,6 @@
 <?php
 // Initialize the session
 session_start();
-
 // Check if the user is logged in, otherwise redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -41,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($new_password_err) && empty($confirm_password_err)){
         // Prepare an update statement
         $sql = "UPDATE users SET password = ? WHERE id = ?";
-
+        $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);

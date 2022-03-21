@@ -1,7 +1,8 @@
 <?php
 // Initialize the session
 session_start();
-
+include "shared.php";
+top();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: welcome.php");
@@ -112,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-            <label>Username</label>
+            <label>Email</label>
             <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
         </div>
@@ -127,5 +128,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
     </form>
 </div>
+<?php bottom() ?>
 </body>
 </html>
