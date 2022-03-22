@@ -1,0 +1,106 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+
+<body>
+<div class="container">
+    <div class="contact__wrapper shadow-lg mt-n9">
+        
+        <div class="row no-gutters">
+          
+
+         <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
+
+            <div class="contactInfo">
+
+            <div class="emailUs">
+            Email Us Directly
+            <br>
+            <a href="mailto:acadianapowerandservices@gmail.com" id="mailIcon" class="fa-solid fa-envelope"></a> 
+            acadianapowerandservices@gmail.com
+            <hr>
+            </div>
+
+            <br>
+           
+           
+
+            <div class="callUs">
+            Give Us A Call
+            <br>
+            <i id="phoneIcon" class="fa-solid fa-phone"></i> +19036238706
+            <hr>
+            </div>
+
+            <br>
+            
+          
+
+            <div class="reviewUs">
+            <i id="starIcon" class="fa-solid fa-star"></i> Give us a review!
+            </div>
+
+        </div>
+
+            </div>
+    
+            
+            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+                <h1>Report An Outage  <img id="noElec" src="/assets/imgs/noElec.jpg" alt="image"></h1>
+                <form action="#" class="contact-form form-validate" novalidate="novalidate">
+                    <div class="row">
+                        <form #emailForm="ngForm" (ngSubmit)="reportOutage(emailForm)" >
+
+                          <div class="zipAndService">
+                     <!--  <div class="col-sm-6 mb-3">--> 
+                            <div class="form-group">
+                                <label class="required-field" for="service"></label>
+                                <input id="serviceArea" ngModel name="service" type="text" class="form-control"  placeholder="Your Service">
+                            
+                            
+                                <label class="required-field" for="zipCode"></label>
+                                <input id="zipCodeArea" ngModel name="zipCode" type="number" class="form-control"placeholder="Your Zipcode">
+                            </div> 
+
+                          <!--  <div class="form-group">
+                               
+                            </div>-->
+                     <!--   </div>-->
+
+                        
+    
+                       <!-- <div class="col-sm-6 mb-3">
+
+                        </div>-->
+
+                    </div>  
+    
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label class="required-field" for="sender"></label>
+                                <input id="emailArea" ngModel name="sender" type="text" class="form-control"placeholder="Your Email">
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-sm-12 mb-3">
+                            <div class="form-group">
+                                <label class="required-field" for="message">Please give a brief description</label>
+                                <textarea id="messageBox" ngModel name="message" class="form-control" rows="4" placeholder="Hello, I'm having an issue with..."></textarea>
+                            </div>
+                        </div>
+    
+                        <div class="col-sm-12 mb-3">
+                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+    
+                    </div>
+                </form>
+            </div>
+            <!-- End Contact Form Wrapper -->
+    
+        </div>
+    </div>
+</div>
+
+</body>

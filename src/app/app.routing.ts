@@ -4,6 +4,7 @@ import { OutageComponent } from './outage';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { UserComponent } from './user';
+import { EmailComponent } from './email/email.component';
 
 const routes: Routes = [
     {path: 'Customer', component: CustomerComponent},
@@ -11,6 +12,7 @@ const routes: Routes = [
     {path: 'Login', component: LoginComponent},
     {path: 'Register', component: RegisterComponent},
     {path: 'Dashboard', component: UserComponent},
+    {path: 'Report', component: EmailComponent},
     {path: '**', redirectTo: ''}
 ];
 
