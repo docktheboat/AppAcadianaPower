@@ -1,8 +1,10 @@
 
-
-<a id="navLink" class="nav-item nav-link" routerLink="/Customer">Manage Customers</a>
-<router-outlet></router-outlet>
-
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" routerLink="/Customer" >Manage Customers</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/Outages">Manage Outages</a></li>
+      </ul>
+  
+      <router-outlet></router-outlet>
 
 <div class="wrapper">
     <div class="one">
@@ -41,40 +43,60 @@
     <div class="two" >
         
         <br>
-        <div class="noOutages" *ngIf="outages?.length == 0">
-             No Current Outages
-            <br>
-            <i id="boxIcon" class="fa-solid fa-box-open"></i>
-        </div>
       
-        <div class="card-container" *ngFor="let out of outages">
-        <div class = "vert-card" >
-            <p id="leftCard"><i id="elecIcon" class="fa-solid fa-bolt"></i></p>
-            <p id="midCard">
-                <a>
-                   Type: {{out.outageType}} 
-            </a>
-            <a>
-               Created At: {{out.creationTime}}
-            </a>
-            <a>
-               Zipcode: {{out.zipCode}}
-            
-            </a>
-            <a>
-               Recovery: {{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins
-            </a>
-            
-            </p>
-            <p id="rightCard">
-                <button (click)="deleteOutage(out.outageType,out.zipCode)" id="delButton" 
-                 type="button">delete</button>
-            </p>
-            <br>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+        <div class="container bootstrap snippets bootdey">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-box no-header clearfix">
+                        <div class="main-box-body clearfix">
+                            <div class="table-responsive">
+                                <table class="table user-list">
+                                    <thead>
+                                        <tr>
+                                        <th><span>Outage Type</span></th>
+                                        <th><span>Created</span></th>
+                                        <th class="text-center"><span>Recovery</span></th>
+                                        <th><span>Location</span></th>
+                                        <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let out of outages">
+                                            <td>
+                                                <i id="elecIcon" class={{getIcon(out.outageType)}}></i>
+                                                <a>{{out.outageType}}</a>
+                                            </td>
+                                            <td>{{out.creationTime}}</td>
+                                            <td class="text-center">
+                                                <a>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</a>
+                                            </td>
+                                            <td>
+                                                <a>{{out.zipCode}}</a>
+                                            </td>
+                                            <td style="width: 20%;">
+                                                <a class="table-link danger">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i (click)="deleteOutage(out.outageType,out.zipCode)" class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
 
-    </div>
+        <div class="noOutages" *ngIf="outages?.length == 0">
+            No Outages To Display
+           <br>
+           <i id="boxIcon" class="fa-solid fa-box-open"></i>
+       </div>
 
         <br>
     </div>
