@@ -60,13 +60,10 @@ width:165px;
 
 .nav{
   width: 50%;
-  margin-left: 6%;
+  margin-left: 7%;
   margin-bottom: 30px;
 }
 
-.nav-item:active{
-  background-color: rgb(172, 163, 163);
-}
 
 
 /*--------------------------------------------------------*/

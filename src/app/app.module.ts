@@ -18,6 +18,7 @@ import { UserComponent } from './user';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { EmailComponent } from './email/email.component';
 
 
 
@@ -28,7 +29,8 @@ import {MatCardModule} from '@angular/material/card';
     LoginComponent,
     AppComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    EmailComponent
 
     
   ],
