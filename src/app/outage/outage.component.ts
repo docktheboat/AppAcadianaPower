@@ -81,5 +81,11 @@ export class OutageComponent implements OnInit{
     )
   }
 
+  public getIcon(type : String) : String{
+    if(type.toLowerCase() == "electric") return "fa-solid fa-bolt"
+    if(type.toLowerCase() == "internet") return "fa-solid fa-wifi"
+    return ""
+  }
+
   
 }

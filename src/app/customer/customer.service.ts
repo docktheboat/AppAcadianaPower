@@ -18,7 +18,7 @@ export class CustomerService {
     }
 
     public deleteCustomer(email : String) : Observable<void> {
-        return this.http.delete<void>(`${this.apiServerUrl}/deleteCustomer/${email}`)
+        return this.http.delete<void>(`${this.apiServerUrl}/Customer/deleteCustomer/${email}`)
     }
 
     public addCustomer(customer : Customer): Observable<String> {
@@ -26,7 +26,7 @@ export class CustomerService {
     }
 
     public getCustomerByEmail(email : String): Observable<Customer> {
-        return this.http.get<Customer>(`${this.apiServerUrl}/customerByEmail/${email}`);
+        return this.http.get<Customer>(`${this.apiServerUrl}/Customer/customerByEmail/${email}`);
     }
 
     public getCustomersByZipCode(zipCode : number): Observable<Customer[]> {

@@ -1,120 +1,117 @@
-<!--<h1>Admin Customer View</h1>
+   <ul class="nav nav-tabs">
+      <li id="customerNav" class="nav-item"><a class="nav-link active" routerLink="/Customer" >Manage Customers</a></li>
+      <li id="outageNav" class="nav-item"><a class="nav-link active" routerLink="/Outages">Manage Outages</a></li>
+    </ul>
 
-
-<div *ngFor="let c of customers">
-    <a>{{c.firstName}}</a>
-    <a>{{c.lastName}}</a>
-    <a>{{c.dob}}</a>
-    <a>{{c.email}}</a>
-    <a>{{c.phoneNumber}}</a>
-    <a>{{c.servicesUsed}}</a>
-    <a>{{c.zipCode}}</a>
-    <a>{{c.address}}</a>
-</div>-->
-
-<!-- -->
-<div class = "divNav">
-<a id="navLink" class="nav-item nav-link" routerLink="/Outages">Manage Outages</a>
-</div>
-<router-outlet></router-outlet>
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-<div class="row flex-lg-nowrap">
+    <router-outlet></router-outlet>
   
- 
-
-  <div class="col">
-    <div class="e-tabs mb-3 px-3">
-
-      <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#">Customers</a></li>
-      </ul>
-    </div>
-
- <!--   <div class="noCustomers" *ngIf="customers?.length == 0">
-      No Current Customers
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <div class="container">
+  <div class="row flex-lg-nowrap">
+      
+    <div class="col">
       <br>
-      <i class="fa-solid fa-user-large-slash"></i>
-  </div>
--->
-    <div class="row flex-lg-nowrap">
-      <div class="col mb-3">
-        <div class="e-panel card">
-          <div class="card-body">
-            <div class="card-title">
-            </div>
-            <div class="e-table">
-              <div class="table-responsive table-lg mt-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th class="align-top">
-                        ID
-                      </th>
-                      <th>Last Name</th>
-                      <th class="max-width">Email</th>
-                      <th class="sortable">Phone</th>
-                      <th>User Name </th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="align-middle">
-                        1
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="bg-light d-inline-flex justify-content-center align-items-center align-top">Adams</div>
-                      </td>
-                      <td class="text-nowrap align-middle">person@yahoo.com</td>
-                      <td class="text-nowrap align-middle"><span>337-555-5555</span></td>
-                     <td class="text-center align-middle">guy22</td>
-                      <td class="text-center align-middle">
-                        <div class="btn-group align-top">
-                         <button  id="eye" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal"><i class="fa-solid fa-eye"></i></button>
-                            <button id="trash" class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
-                        </div>
-                      </td>
-                    </tr>
-
-
- 
-                  </tbody>
-                </table>
+      <div class="row flex-lg-nowrap">
+        <div class="col mb-3">
+          <div class="e-panel card">
+            <div class="card-body">
+              <div class="card-title">
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <div class="e-table">
+                <div class="table-responsive table-lg mt-3">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="align-top">
+                          ID
+                        </th>
+                        <th>Last Name</th>
+                        <th class="max-width">Email</th>
+                        <th class="sortable">Phone</th>
+                        <th>Service</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let c of customers">
+                      <tr>
+                        <td class="align-middle">
+                          {{c.accountNumber}}
+                        </td>
+                        <td class="align-middle text-center">
+                          <div class="bg-light d-inline-flex justify-content-center align-items-center align-top">{{c.lastName}}</div>
+                        </td>
+                        <td class="text-nowrap align-middle">{{c.email}}</td>
+                        <td class="text-nowrap align-middle"><span>{{c.phoneNumber}}</span></td>
+                       <td class="text-center align-middle">{{c.servicesUsed}}</td>
+                        <td class="text-center align-middle">
+                          <div class="btn-group align-top">
+                           <button  id="eye" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal"><i class="fa-solid fa-eye"></i></button>
+                              <button (click)="deleteCustomer(c.email)" id="trash" class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+  
+  
    
-      <div class="col-12 col-lg-3 mb-3">
-        <div class="card">
-          <div id="search" class="card-body">
-            <div class="text-center px-xl-3">
-              <button class="btn btn-success btn-block" type="button" data-toggle="modal" data-target="#user-form-modal">New Customer</button>
-            </div>
-            <hr class="my-3">
-            <hr class="my-3">
-            <div>
-              <div class="form-group">
-                <label>Search by Email:</label>
-                <div><input class="form-control w-100" type="text" placeholder="Email" value=""></div>
-              </div>
-              <div class="form-group">
-                <label>Filter By Zipcode:</label>
-                <div><input class="form-control w-100" type="text" placeholder="Zipcode" value=""></div>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-            <hr class="my-3">
+          </div>
+
+          <div class="noCustomers" *ngIf="customers?.length == 0">
+            No Customers To Display
+           <br>
+           <i id="noUserIcon" class="fa-solid fa-user-slash"></i>
+       </div>
+
+        </div>
+     
+        <div class="col-12 col-lg-3 mb-3">
+          <div class="card">
+            <div id="search" class="card-body">
+              <div class="text-center px-xl-3">
+                <button (click)="getCustomers()" class="btn btn-success btn-block" type="button" data-toggle="modal" data-target="#user-form-modal">Show All Customers</button>
+              </div>
+              <hr class="my-3">
+              <hr class="my-3">
+              <div>
+
+                <form (submit)="getCustomerByEmail(email.value)">
+
+                <div class="form-group">
+                  <label>Search by Email:</label>
+                  <div><input #email class="form-control w-100" type="text" placeholder="Email" value=""></div>
+                  <button id="formButton" type="submit" class="btn btn-primary">Enter</button>
+                </div>
+
+              </form>
+
+              <form (submit)="getCustomersByZipCode(zipCode.value)">
+                <div class="form-group">
+                  <label>Filter By Zipcode:</label>
+                  <div><input #zipCode class="form-control w-100" type="number" placeholder="Zipcode" value=""></div>
+                  <button id="formButton" type="submit" class="btn btn-primary">Enter</button>
+                </div>
+              </form>
+              </div>
+              <hr class="my-3">
+            </div>
           </div>
         </div>
+  
+  
       </div>
 
+  
+              </div>
 
-    </div>
 
             </div>
+
+
+
           </div>
-        </div>
- 
+
+   

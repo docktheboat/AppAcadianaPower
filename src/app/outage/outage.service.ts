@@ -30,7 +30,7 @@ export class OutageService {
     }
 
     public getOutagesByZipCode(zipCode : number): Observable<Outage[]> {
-        return this.http.get<Outage[]>(`${this.apiServerUrl}/area/${zipCode}`);
+        return this.http.get<Outage[]>(`${this.apiServerUrl}/Outages/area/${zipCode}`);
     }
 
     public getSpecificOutage(type : String, zipCode : number): Observable<Outage> {

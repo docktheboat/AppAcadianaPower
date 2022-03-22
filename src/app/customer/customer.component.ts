@@ -24,8 +24,8 @@ ngOnInit(): void {
     this.getCustomers()
 }
 
-public getCustomersByZipCode(zipCode : number){
-    this.customerService.getCustomersByZipCode(zipCode).subscribe(
+public getCustomersByZipCode(zipCode : String){
+    this.customerService.getCustomersByZipCode(Number(zipCode)).subscribe(
         (response : Customer[]) => {
             this.customers = response;
         },
@@ -69,6 +69,18 @@ public addCustomer(addForm : NgForm){
         }
     )
 }
+
+public getCustomerByEmail(email : String){
+    this.customerService.getCustomerByEmail(email).subscribe(
+        (response : Customer) => {
+            this.customers = [response];
+        },
+        (error : HttpErrorResponse) => {
+            alert(error.message)
+        }
+    )
+}
+
 
 
 }
