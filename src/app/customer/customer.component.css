@@ -8,6 +8,10 @@ body{
     margin-left: 7%;
 }
 
+.nav-item:hover{
+    font-weight: bold;
+}
+
 #eye:hover{
     background-color:rgb(30, 163, 134);
 }
