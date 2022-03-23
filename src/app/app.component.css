@@ -30,9 +30,29 @@ footer{
     margin-bottom: 10px;
 }
 
+#barLink{
+    font-size: 17px;
+    border-right: 0.5px solid rgb(173, 207, 201);
+}
+
 #barLink:hover{
-    background-color: rgb(19, 18, 18);
-    border-radius: 15px;
     color: white;
-    transition: 0.4s;
+    transition: 0.3s;
   }
+
+.socialLinks{
+    float: right;
+    font-size: 40px;
+    margin-right: 0;
+    margin-left: 55%;
+    display: flex;
+}
+
+.socialLinks a{
+    margin-left: 20px;
+}
+
+.socialLinks a:hover{
+    color: white;
+    transition: 0.3s;
+}
