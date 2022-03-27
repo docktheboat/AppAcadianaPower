@@ -1,9 +1,82 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<div class = dashHead>
+  <div class = "dashTitle">
+    <h1>Welcome To The Acadiana Power Dashboard</h1>
+    <img id="logoImg" src="/assets/imgs/hydro2.png" alt="image">
+  </div>
+
+  <div class = sideDashHead>
+    <p id="welcomeMsg">
+
+    Welcome to our outage and <br>
+    weather information dashboard. <br>
+    <u></u>
+    <br>
+    
+    If you need to report an outage or
+    <br>
+    contact us, please click on the
+    <br>
+    report tab above. Thank you, <br>
+    we appericiate your business! <br>
+  </p>
+
+    
+    <p id="connect">Connect With Us!</p>
+    <div class="socialLinks">
+      
+      <br>
+      <a href="https://twitter.com/" target="_blank" ><i class="fa-brands fa-twitter-square"></i></a>
+      <a href="https://facebook.com/" target="_blank" ><i class="fa-brands fa-facebook-square"></i></a>
+      <a href ="https://linkedin.com/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+  
+  </div>
+
+  </div>
+  
+</div>
+
+
+
 <div class="wrapper">
    <div class="one">
 
     <!--
       Content for left side
     -->
+
+    <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
+
+    <div class="container">
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Geo ID</th>
+                <th>Census Tract</th>
+                <th>Region Code</th>
+                <th>Internet</th>
+                <th>Electricity</th>
+                <th>Zipcode</th>
+              </tr>
+            </thead>
+            <tbody id="myTable" *ngFor="let m of mapInfo">
+              <tr>
+                <td>{{m.geoID}}</td>
+                <td>{{m.regionName}}</td>
+                <td>{{m.regionCode}}</td>
+                <td>{{m.netStatus}}</td>
+                <td>{{m.elecStatus}}</td>
+                <td>{{m.zipCode}}</td>
+              </tr>
+              </tbody>
+              </table>
+              </div>
+              </div>
+              </div>
 
 
    </div>
@@ -24,7 +97,7 @@
        </div>
    </div>
    <div class="right-panel panel">
-       <i id="wIcon" class={{iconClass}}></i>
+     <!--  <i id="wIcon" class={{iconClass}}></i> -->
    </div>
 
 </div>

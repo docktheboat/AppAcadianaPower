@@ -32,7 +32,6 @@ footer{
 
 #barLink{
     font-size: 17px;
-    border-right: 0.5px solid rgb(173, 207, 201);
 }
 
 #barLink:hover{
@@ -40,6 +39,7 @@ footer{
     transition: 0.3s;
   }
 
+  /*
 .socialLinks{
     float: right;
     font-size: 40px;
@@ -56,3 +56,4 @@ footer{
     color: white;
     transition: 0.3s;
 }
+*/
