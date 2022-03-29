@@ -17,28 +17,14 @@ h1{
 
 #barLink{
     font-size: 17px;
-}
-
-#barLink:hover{
-    color: white;
-    transition: 0.3s;
-  }
-
-  /*
-.socialLinks{
-    float: right;
-    font-size: 40px;
-    margin-right: 0;
-    margin-left: 55%;
-    display: flex;
-}
-
-.socialLinks a{
+    color: gray;
     margin-left: 20px;
 }
 
-.socialLinks a:hover{
-    color: white;
+
+#barLink:hover{
+    color: black;
     transition: 0.3s;
-}
-*/
+    text-decoration: underline black;
+  }
+
