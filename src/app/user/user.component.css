@@ -48,22 +48,105 @@
 }
 
 #notif-icon{
-  font-size: 50px;
-  margin-left: 25px;
-  margin-top: 25px;
+  font-size: 32.5px;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 .mid-circle{
-  height:100px;
-  width: 100px;
+  height:65px;
+  width: 65px;
   background-color: white;
   margin-left: 45%;
   margin-right: 45%;
   border-radius: 50px;
-  margin-top: -50px;
+  margin-top: -32.5px;
   position: absolute;
   border: 0.5px solid gray;
 }
+
+.notif-container{
+  float: left;
+  height: 275px;
+  width: 350px;
+  margin-top: 37.5px;
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 8px;;
+}
+
+.notif-container .top{
+  margin-top: 10px;
+  margin-left: 20px;
+  text-align: center;
+  
+}
+
+.date{
+  background-color: #edf1fc;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-left: 15px;
+  display: grid;
+  place-items: center;
+}
+
+.date-day{
+  color: #4e73e5;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.date-month{
+  color: #4e73e5;
+  line-height: 1;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-top: -15px;
+  font-weight: 600;
+}
+
+.report-container{
+  float: left;
+  height: 275px;
+  width: 350px;
+  margin-top: 37.5px;
+  margin-left: 400px;
+  background-color: white;
+  border-radius: 8px;
+
+}
+
+.report-container .top{
+  margin-top: 10px;
+  text-align: center;
+}
+
+#report-button{
+  height: 30px;
+  width: 150px;
+  background-color: rgb(97, 29, 97);
+  color:rgb(241, 238, 238);
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 100px;
+  border: none;
+}
+
+#report-button:hover{
+
+  text-decoration: none;
+  color: white;
+  background-color: rgb(134, 48, 134);
+  transition: 0.2s;
+}
+
+.report-msg{
+  text-align: center;
+}
+
 
 /*---------------- map dash -------------*/
 
@@ -81,9 +164,9 @@
 }
 
 #map-icon{
-  font-size: 50px;
-  margin-left: 30px;
-  margin-top: 25px;
+  font-size: 32.5px;
+  margin-left: 20px;
+  margin-top: 15px;
   color: rgb(62, 153, 77);
 
 }
@@ -124,9 +207,9 @@
 }
 
 #weather-icon{
-  font-size: 50px;
-  margin-left: 34px;
-  margin-top: 25px;
+  font-size: 32.5px;
+  margin-left: 21.5px;
+  margin-top: 15px;
   color:rgb(240, 141, 61);
 }
 
