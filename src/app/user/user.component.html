@@ -1,109 +1,180 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<div class = dashHead>
-  <div class = "dashTitle">
-    <h1>Welcome To The Acadiana Power Dashboard</h1>
-    <img id="logoImg" src="/assets/imgs/hydro2.png" alt="image">
+<div class = dashboard>
+
+
+
+<div class="top-dash">
+
+
+  <div class="main-title">
+   Welcome To The Acadiana Power Dashboard
   </div>
 
-  <div class = sideDashHead>
-    <p id="welcomeMsg">
-
+  <div class="welcome-msg">
     Welcome to our outage and <br>
     weather information dashboard. <br>
-    <u></u>
     <br>
-    
-    If you need to report an outage or
+  
+    Below you will find outage notifications,
     <br>
-    contact us, please click on the
+    a service map with a table of service info,
     <br>
-    report tab above. Thank you, <br>
+    and a radar along with your current weather.<br>
+    Thank you and <br>
     we appericiate your business! <br>
-  </p>
-
-    
-    <p id="connect">Connect With Us!</p>
-    <div class="socialLinks">
-      
-      <br>
-      <a href="https://twitter.com/" target="_blank" ><i class="fa-brands fa-twitter-square"></i></a>
-      <a href="https://facebook.com/" target="_blank" ><i class="fa-brands fa-facebook-square"></i></a>
-      <a href ="https://linkedin.com/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-  
   </div>
 
-  </div>
-  
+
 </div>
 
+<div class="mid-circle">
+  <i id="notif-icon" class="fa-solid fa-envelope-circle-check"></i>
+
+</div>
+
+<div class="notification-dash">
 
 
-<div class="wrapper">
-   <div class="one">
-
-    <!--
-      Content for left side
-    -->
-
-    <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
-
-    <div class="container">
-      <div class="row">
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Geo ID</th>
-                <th>Census Tract</th>
-                <th>Region Code</th>
-                <th>Internet</th>
-                <th>Electricity</th>
-                <th>Zipcode</th>
-              </tr>
-            </thead>
-            <tbody id="myTable" *ngFor="let m of mapInfo">
-              <tr>
-                <td>{{m.geoID}}</td>
-                <td>{{m.regionName}}</td>
-                <td>{{m.regionCode}}</td>
-                <td>{{m.netStatus}}</td>
-                <td>{{m.elecStatus}}</td>
-                <td>{{m.zipCode}}</td>
-              </tr>
-              </tbody>
-              </table>
-              </div>
-              </div>
-              </div>
+ <!-- <div class="title">Notifications</div>-->
 
 
-   </div>
-   <div class="two">
+</div>
 
-<div class="widget" >
+<div class="mid-circle">
+  <i id="map-icon" class="fa-solid fa-location-dot"></i>
+
+</div>
+
+<div class="map-dash">
+
+
+ <!-- <div class="title">Service Map</div>-->
+
+
+ <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
+
+
+ <div class="container">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Geo ID</th>
+            <th>Census Tract</th>
+            <th>Region Code</th>
+            <th>Internet</th>
+            <th>Electricity</th>
+            <th>Zipcode</th>
+          </tr>
+        </thead>
+        <tbody id="myTable" *ngFor="let m of mapInfo">
+          <tr>
+            <td>{{m.geoID}}</td>
+            <td>{{m.regionName}}</td>
+            <td>{{m.regionCode}}</td>
+            <td>{{m.netStatus}}</td>
+            <td>{{m.elecStatus}}</td>
+            <td>{{m.zipCode}}</td>
+          </tr>
+          </tbody>
+          </table>
+          </div>
+          </div>
+          </div>
+
+
+</div>
+
+<div class="mid-circle">
+
+  <i id="weather-icon" class="fa-solid fa-temperature-half"></i>
+
+</div>
+
+<div class="radar-dash">
+
+  <div class="radar-container" >
+
+    <iframe id="nws-radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
+    width="350" height="350"></iframe>
+
+  </div>
+
+
+  <div class="widget" >
             
-   <div class="left-panel panel" *ngFor="let w of weatherInfo">
+    <div class="left-panel panel" *ngFor="let w of weatherInfo">
+ 
+        <div class="city">
+            Lafayette, LA
+        </div>
+        <div class="temp">
+          {{w.temperature}}&deg;
+        </div>
+        <div class = "info">
+         <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
+        </div>
+    </div>
+    <div class="right-panel panel">
+   <!--  <i id="wIcon" class={{iconClass}}></i> -->
+    </div>
+ 
+ </div>
 
-       <div class="city">
-           Lafayette, LA
-       </div>
-       <div class="temp">
-         {{w.temperature}}&deg;
-       </div>
-       <div class = "info">
-        <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
-       </div>
-   </div>
-   <div class="right-panel panel">
-     <!--  <i id="wIcon" class={{iconClass}}></i> -->
-   </div>
+
+ <!-- <div class="title">Weather Radar</div>-->
+
 
 </div>
 
-<iframe id="radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
-width="330" height="330"></iframe>
-</div>
+<div class="bottom-dash">
+
+  <div class="company-links">
+    <b>Company</b>
+    <br>
+    <br>
+      About Us<br>
+      <br>
+      <a href="mailto:acadianapowerandservices@gmail.com">Contact Us</a><br>
+      <br>
+      Careers<br>
+      <br>
+  </div>
+
+  <div class="info-links">
+    <b>Information</b>
+    <br>
+    <br>
+      Privacy<br>
+      <br>
+      Cookies<br>
+      <br>
+      
+  </div>
+
+  <div class="relevant-links">
+    <b>Relevant Links</b>
+    <br>
+    <br>
+    <a href="https://www.klfy.com/weather/" target="_blank">klfy.com/weather/</a>
+      <br>
+      <br>
+      <a href="http://www.dnr.louisiana.gov/index.cfm/page/231" target="_blank">dnr.louisiana.gov</a> 
+  </div>
+
+
+  <div class="social-links">
+
+  <a href="https://twitter.com/" target="_blank" ><i class="fa-brands fa-twitter-square"></i></a>
+  <a href="https://facebook.com/" target="_blank" ><i class="fa-brands fa-facebook-square"></i></a>
+  <a href ="https://linkedin.com/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+
 </div>
 
+</div>
+
+<!--End dashboard-->
+</div>

@@ -14,6 +14,11 @@ export class UserComponent implements OnInit{
     public weatherInfo : Weather[] | undefined
     public mapInfo : CensusMap[] | undefined
     public iconClass : String | undefined
+    public day : number | undefined
+    public month : String | undefined
+    public months = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
     constructor(private weatherService: WeatherService,
         private mapService: MapService){}
@@ -21,6 +26,9 @@ export class UserComponent implements OnInit{
     ngOnInit(): void {
         this.getWeather();
         this.getAllMapInfo();
+        var date = new Date();
+        this.day = date.getUTCDate();
+        this.month = this.months[date.getMonth()].substring(0,3);
     }
 
     public getWeather(){

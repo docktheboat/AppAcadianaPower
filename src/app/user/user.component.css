@@ -1,27 +1,177 @@
 
-body
-{
-  font-family: 'Roboto', sans-serif;
+.dashboard{
+  background-color: white;
+  width: 100%;
+
+}
+/*---------------- top dash -------------*/
+.top-dash{
+  width: 90%;
+  height: 400px;
+  background: linear-gradient(135deg, rgb(255, 254, 254) 50%, rgb(248, 222, 201) 35%);
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.main-title{
+  padding-top: 60px;
+  margin-left: 25%;
+  font-size: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 2px;
+}
+
+.welcome-msg{
+  margin-top: 30px;
+ /* margin-left: 25%;*/
+  font-size: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
+/*---------------- notif dash -------------*/
+
+.notification-dash{
+  width: 90%;
+  height: 350px;
+  background-color: rgb(149, 204, 197);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.notification-dash .title{
+  margin-left: 50%;
+  margin-right: 50%;
+  padding-top: 30px;
+}
+
+#notif-icon{
+  font-size: 50px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.mid-circle{
+  height:100px;
+  width: 100px;
+  background-color: white;
+  margin-left: 45%;
+  margin-right: 45%;
+  border-radius: 50px;
+  margin-top: -50px;
+  position: absolute;
+  border: 0.5px solid gray;
+}
+
+/*---------------- map dash -------------*/
+
+.map-dash{
+  width: 90%;
+  height: 650px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-dash .title{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+#map-icon{
+  font-size: 50px;
+  margin-left: 30px;
+  margin-top: 25px;
+  color: rgb(62, 153, 77);
+
+}
+
+#mapImg{
+  height:550px;
+  width:450px;
+  float: left;
+  margin-top: 75px;
+}
+
+#myTable{
+  overflow-y: auto;
+}
+
+.table-responsive{
+  height:450px;
+  font-size: 12px;
+  width: 525px;
+  margin-left: 125px;
+  margin-top: 75px;
+}
+
+
+/*---------------- radar dash -------------*/
+
+.radar-dash{
+  width: 90%;
+  height: 480px;
+  background-color: rgb(211, 214, 211);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.radar-dash .title{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+#weather-icon{
+  font-size: 50px;
+  margin-left: 34px;
+  margin-top: 25px;
+  color:rgb(240, 141, 61);
+}
+
+.radar-container{
+
+  background-color: white;
+  height: 380px;
+  width: 420px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 30px;
+  float: left;
+  border-radius: 8px;
+}
+
+#nws-radar{
+  border: none;
+  margin-left: 35px;
+  margin-top: 18px;
+}
+
+/* -------------------- Weather Widget --------------- */
+
+.widget{
+  float: left;
+  margin-left: 200px;
 }
 
 div.widget
 {
   width: 240px;
-  height: 100px;
-  background-color: #eaf3f3;
+  height: 300px;
+  background-color: white;
   border-radius: 9px;
   padding: 25px;
   padding-right: 30px;
-  box-shadow: 0px 31px 35px -26px #080c21;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 100px;
   margin-bottom: 30px;
+  margin-left: 250px;
 }
 
 
 #wIcon {
     font-size: 50px;
-    margin-top: 15px;
     color: rgb(42, 87, 172);
 }
 
@@ -58,112 +208,69 @@ div.temp
 div.right-panel
 {
 
-  position: absolute;
-  float: right;
-  top: 0;
+  margin-top: -100;
+  margin-bottom: 250px;
   margin-left: 140px;
-  margin-top: 130px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 
-}
-.one {
-  grid-column: 1/3;
-  height: 200px;
-}
-.two {
-  grid-column: 3;
+/*---------------- bottom dash -------------*/
+
+.bottom-dash{
+  width: 100%;
+  height: 300px;
+  background-color: black;
 }
 
-#radar{
+.social-links a{
+  margin-right: 20px;
+  color: white;
+}
+
+.social-links{
+  float: left;
+  font-size: 50px;
+  padding-top: 75px;
+  margin-left: 150px;
+}
+
+.social-links a:hover{
+  color: rgb(0, 162, 255);
+  transition: 0.3s;
+}
+
+
+.relevant-links{
+  float: left;
+  color: gray;
+  padding-top: 75px;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+.company-links{
+  float: left;
+  color: gray;
+  padding-top: 75px;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 100px;
+}
+
+.company-links a{
+color: gray
+}
+
+.info-links{
+  float: left;
+  color: gray;
+  padding-top: 75px;
+  text-align: center;
+  font-size: 15px;
   margin-left: 50px;
 }
 
 
-#mapImg{
-  height:600px;
-  width:500px;
-  margin-left: 200px;
-}
 
-
-.table-responsive{
-  height:400px;
-  font-size: 12px;
-  width: 88%;
-  margin-left: 100px;
-  margin-top: -50px;
-
-}
-
-#myTable{
-  overflow-y: auto;
-}
-
-.dashHead{
-  height: 350px;
-  width: 80%;
-  background: linear-gradient(135deg, rgb(255, 254, 254) 50%, rgb(248, 222, 201) 35%);
-  margin-top: -10px;
-  margin-left: auto;
-  margin-right: auto;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-.sideDashHead{
-  float : right;
-  padding-top: -150px;
-  margin-right: 50px;
-}
-
-.socialLinks{
-  font-size: 50px;
-  display: flex;
-}
-
-#connect{
-  margin-top: 30px;
-  margin-left: 60px;
-}
-
-.socialLinks a{
-  margin-left: 20px;
-}
-
-.socialLinks a:hover{
-  color: rgb(19, 18, 18);
-  transition: 0.3s;
-}
-
-.dashTitle{
-  padding-top: 35px;
-}
-.dashTitle h1{
-  padding-left: 200px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100;
-  font-size: 30px;
-}
-
-#logoImg{
-  height: 300px;
-  width: 450px;
-  margin-left: -100px;
-  float: left;
-}
-
-
-.wrapper{
-  margin-top: 100px;
-}
-
-#welcomeMsg{
-  font-size: 20px;
-  border-left: solid black 1px;
-
-}
+/* --------------------------------------- */
