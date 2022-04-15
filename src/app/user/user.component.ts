@@ -5,6 +5,8 @@ import { Weather } from '../weather/weather'
 import { HttpErrorResponse } from '@angular/common/http'
 import { CensusMap } from '../map/map'
 import { MapService } from '../map/map.service'
+import { Outage } from '../outage/outage'
+import { OutageService } from '../outage/outage.service'
 
 @Component({
     templateUrl: 'user.component.html',
@@ -16,20 +18,40 @@ export class UserComponent implements OnInit{
     public iconClass : String | undefined
     public day : number | undefined
     public month : String | undefined
+    public mostRecentOutages : Outage[] | undefined 
     public months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
     constructor(private weatherService: WeatherService,
-        private mapService: MapService){}
+        private mapService: MapService, private outageService : OutageService){}
 
     ngOnInit(): void {
         this.getWeather();
         this.getAllMapInfo();
+        this.setDate();
+        this.setMostRecentOutages();
+    }
+
+    public setDate(){
         var date = new Date();
+        date.setHours(date.getHours() - 5); // UTC to CST
         this.day = date.getUTCDate();
         this.month = this.months[date.getMonth()].substring(0,3);
     }
+
+    public setMostRecentOutages(){
+        this.outageService.getByCreation().subscribe(
+            (response : Outage[]) => {
+             this.mostRecentOutages = response;
+            },
+            (error : HttpErrorResponse) => {
+              /*alert(error.message)*/
+            }
+          )
+    }
+
+
 
     public getWeather(){
         this.weatherService.getWeather().subscribe(

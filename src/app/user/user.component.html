@@ -42,7 +42,7 @@
 <div class="notif-container">
 
   <div class="top" >
-  Outage Notification<br>
+  Outage Notifications<br>
 </div>
 <hr>
 
@@ -51,6 +51,34 @@
 <span class="date-month">{{month}}</span>
 </div>
 
+<div class="outage-container">
+
+<table class="outage-table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Created At</th>
+      <th>Recovery Time</th>
+      <th>Zipcode</th>
+    </tr>
+  </thead>
+  <tbody id="outage-info"  *ngFor="let out of mostRecentOutages">
+    <tr>
+      <td>{{out.outageType}}</td>
+      <td>{{out.creationTime}}</td>
+      <td>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</td>
+      <td>{{out.zipCode}}</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <div class="no-outages" *ngif="mostRecentOutages.length == 0">
+      There are currenly no outages<br>
+      in your area
+      <br>
+      <i id="boxIcon" class="fa-solid fa-box-open"></i>
+    </div>
+  </div>
 
 </div>
 
@@ -178,51 +206,6 @@
 
 </div>
 
-<div class="bottom-dash">
-
-  <div class="company-links">
-    <b>Company</b>
-    <br>
-    <br>
-      About Us<br>
-      <br>
-      <a href="mailto:acadianapowerandservices@gmail.com">Contact Us</a><br>
-      <br>
-      Careers<br>
-      <br>
-  </div>
-
-  <div class="info-links">
-    <b>Information</b>
-    <br>
-    <br>
-      Privacy<br>
-      <br>
-      Cookies<br>
-      <br>
-      
-  </div>
-
-  <div class="relevant-links">
-    <b>Relevant Links</b>
-    <br>
-    <br>
-    <a href="https://www.klfy.com/weather/" target="_blank">klfy.com/weather/</a>
-      <br>
-      <br>
-      <a href="http://www.dnr.louisiana.gov/index.cfm/page/231" target="_blank">dnr.louisiana.gov</a> 
-  </div>
-
-
-  <div class="social-links">
-
-  <a href="https://twitter.com/" target="_blank" ><i class="fa-brands fa-twitter-square"></i></a>
-  <a href="https://facebook.com/" target="_blank" ><i class="fa-brands fa-facebook-square"></i></a>
-  <a href ="https://linkedin.com/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-
-</div>
-
-</div>
 
 <!--End dashboard-->
 </div>

@@ -25,13 +25,19 @@
 
 .welcome-msg{
   margin-top: 30px;
- /* margin-left: 25%;*/
   font-size: 20px;
   font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
 }
 
 /*---------------- notif dash -------------*/
+
+.outage-info{
+  border: 1px solid gray;
+  float: right;
+  width:100px;
+  margin-bottom: 10px;
+}
 
 .notification-dash{
   width: 90%;
@@ -67,9 +73,9 @@
 
 .notif-container{
   float: left;
-  height: 275px;
-  width: 350px;
-  margin-top: 37.5px;
+  height: 230px;
+  width: 500px;
+  margin-top: 50px;
   margin-left: 20px;
   background-color: white;
   border-radius: 8px;;
@@ -82,7 +88,25 @@
   
 }
 
+.outage-container{
+  height: 100px;
+}
+
+.no-outages{
+  text-align: center;
+}
+
+.outage-table{
+  float: left;
+  margin-left: 30px;
+}
+
+#outage-info{
+  overflow-y: auto;
+}
+
 .date{
+  float: left;
   background-color: #edf1fc;
   width: 75px;
   height: 75px;
@@ -113,7 +137,7 @@
   height: 275px;
   width: 350px;
   margin-top: 37.5px;
-  margin-left: 400px;
+  margin-left: 200px;
   background-color: white;
   border-radius: 8px;
 
@@ -294,64 +318,6 @@ div.right-panel
   margin-top: -100;
   margin-bottom: 250px;
   margin-left: 140px;
-}
-
-
-/*---------------- bottom dash -------------*/
-
-.bottom-dash{
-  width: 100%;
-  height: 300px;
-  background-color: black;
-}
-
-.social-links a{
-  margin-right: 20px;
-  color: white;
-}
-
-.social-links{
-  float: left;
-  font-size: 50px;
-  padding-top: 75px;
-  margin-left: 150px;
-}
-
-.social-links a:hover{
-  color: rgb(0, 162, 255);
-  transition: 0.3s;
-}
-
-
-.relevant-links{
-  float: left;
-  color: gray;
-  padding-top: 75px;
-  text-align: center;
-  font-size: 15px;
-  margin-left: 50px;
-}
-
-.company-links{
-  float: left;
-  color: gray;
-  padding-top: 75px;
-  text-align: center;
-  font-size: 15px;
-  margin-left: 100px;
-}
-
-.company-links a{
-color: gray
-}
-
-.info-links{
-  float: left;
-  color: gray;
-  padding-top: 75px;
-  text-align: center;
-  font-size: 15px;
-  margin-left: 50px;
 }
 
 
