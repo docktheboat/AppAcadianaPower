@@ -1,0 +1,80 @@
+.top-body{
+    background-color: rgb(19, 21, 22);
+    height: 600px;
+    width: 100%;
+    margin-top: -10px;
+}
+
+/* ----------------- Login -------------- */
+
+.container{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    height: 22%;
+    width: 900px;
+    border-radius: 8px;
+}
+
+.account-block {
+    padding: 0;
+    background-image: url('/assets/imgs/logo490-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+.account-block .overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+    text-align: center;
+    color: #fff;
+}
+
+.text-theme {
+    color: #5369f8 !important;
+}
+
+.btn-theme {
+    background-color: #5369f8;
+    border-color: #5369f8;
+    color: #fff;
+    margin-right: 10px;
+    margin-top: -30px;
+}
+.about-section{
+    color: black;
+    background-color: white;
+    height: 300px;
+    width: 100%;
+    
+}
+.about-title{
+    margin-left: 45%;
+    margin-top: 20px;
+    font-size: 20px;
+    color: rgb(19, 21, 22);
+    text-decoration: underline rgb(238, 87, 40);
+}
+
+.services{
+    margin-top: 100px;
+    margin-left: 213px;
+}
+.solar, .weather, .outages{
+    float: left;
+    text-align: center;
+    margin-right: 75px;
+}
+.services #icon{
+    color: rgb(238, 87, 40);
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+.services span{
+    color: rgb(238, 87, 40);
+    cursor: pointer;
+}
+.services span:hover{
+    text-decoration: underline rgb(238, 87, 40);;
+}
