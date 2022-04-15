@@ -7,11 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { OutageService } from './outage/outage.service';
 import { OutageComponent } from './outage';
 import { CustomerComponent } from './customer';
 import { appRoutingModule } from './app.routing';
-import { LoginComponent } from './login';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register';
 import { UserComponent } from './user';
@@ -26,7 +24,6 @@ import { EmailComponent } from './email/email.component';
   declarations: [
     OutageComponent,
     CustomerComponent,
-    LoginComponent,
     AppComponent,
     RegisterComponent,
     UserComponent,
@@ -49,7 +46,7 @@ import { EmailComponent } from './email/email.component';
     MatCardModule,
     appRoutingModule
   ],
-  providers: [OutageService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
