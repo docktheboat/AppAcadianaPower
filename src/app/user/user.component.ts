@@ -16,6 +16,7 @@ export class UserComponent implements OnInit{
     public weatherInfo : Weather[] | undefined
     public mapInfo : CensusMap[] | undefined
     public iconClass : String | undefined
+    public iconID : String | undefined
     public day : number | undefined
     public month : String | undefined
     public mostRecentOutages : Outage[] | undefined 
@@ -57,6 +58,7 @@ export class UserComponent implements OnInit{
         this.weatherService.getWeather().subscribe(
             (response : Weather) => {
                 this.iconClass = this.weatherService.getIcon(response.conditions);
+                this.iconID = this.weatherService.getIconID(response.conditions);
                 this.weatherInfo = [response];
             },
             (error: HttpErrorResponse) => {

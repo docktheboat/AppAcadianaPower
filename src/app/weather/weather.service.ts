@@ -25,4 +25,9 @@ export class WeatherService {
         if(c.includes("clouds")) return "fa-solid fa-cloud"
         return "";
     }
+
+    public getIconID(str: String) : String {
+        if(str.includes("clear")) return "sunny"
+        return "other"
+    }
 }
