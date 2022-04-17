@@ -1,211 +1,176 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<div class = dashboard>
-
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Exo+2:wght@200&family=Open+Sans:wght@300&family=Roboto+Condensed&family=Rubik:wght@300&display=swap" rel="stylesheet">
 
 
-<div class="top-dash">
+<div class="my-dashboard">
 
+  <div class="title-section">
+    
+    <div class="title-name">
+      Welcome to the Acadiana Power Dashboard
+      <hr>
+    
+    </div>
 
-  <div class="main-title">
-   Welcome To The Acadiana Power Dashboard
-  </div>
-
-  <div class="welcome-msg">
-    Welcome to our outage and <br>
-    weather information dashboard. <br>
-    <br>
+    <div class="title-msg">
+      Below you will find outage notifications,
+      <br>
+      a service map with a table of service info,
+      <br>
+      and a radar along with your current weather.<br>
+      Thank you and <br>
+      we appericiate your business! <br>
   
-    Below you will find outage notifications,
-    <br>
-    a service map with a table of service info,
-    <br>
-    and a radar along with your current weather.<br>
-    Thank you and <br>
-    we appericiate your business! <br>
+
+    </div>
+
+
+
   </div>
 
 
-</div>
+  <div class="section-1">
 
-<div class="mid-circle">
-  <i id="notif-icon" class="fa-solid fa-envelope-circle-check"></i>
+    <div class="out-table-title">
+        Local Outage Notifications
+        <br>
+        <br>
+    </div>
 
-</div>
+    <div class="date">
+      <span class="date-day">{{day}}</span>
+      <span class="date-month">{{month}}</span>
+      </div>      
 
-<div class="notification-dash">
 
-
- <!-- <div class="title">Notifications</div>-->
-
-<div class="notif-container">
-
-  <div class="top" >
-  Outage Notifications<br>
-</div>
-<hr>
-
-<div class="date">
-<span class="date-day">{{day}}</span>
-<span class="date-month">{{month}}</span>
-</div>
-
-<div class="outage-container">
-
-<table class="outage-table">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Created At</th>
-      <th>Recovery Time</th>
-      <th>Zipcode</th>
-    </tr>
-  </thead>
-  <tbody id="outage-info"  *ngFor="let out of mostRecentOutages">
-    <tr>
-      <td>{{out.outageType}}</td>
-      <td>{{out.creationTime}}</td>
-      <td>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</td>
-      <td>{{out.zipCode}}</td>
-    </tr>
+    <div class="table-container">
+    <table id="outage-table">
+      <tr>
+        <tr>
+          <th>Type</th>
+          <th>Created At</th>
+          <th>Recovery Time</th>
+          <th>Zipcode</th>    
+      </tr>
+      <tbody *ngFor="let out of mostRecentOutages">
+      <tr>
+        <td>{{out.outageType}}</td>
+        <td>{{out.creationTime}}</td>
+        <td>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</td>
+        <td>{{out.zipCode}}</td>  
+      </tr>
     </tbody>
     </table>
-
-    <div class="no-outages" *ngif="mostRecentOutages.length == 0">
-      There are currenly no outages<br>
-      in your area
-      <br>
-      <i id="boxIcon" class="fa-solid fa-box-open"></i>
-    </div>
   </div>
-
-</div>
-
-<div class="report-container">
-  <div class="top" >
-    Reporting<br>
-  </div>
-  <hr>
-
-  <div class="report-msg">
-
-    When there is a new outage you will be<br>
-    notified via email and text.
-    <br>
-    <br>
-
-    If you are having trouble with your<br>
-    electric or internet services, please<br>
-    report your issue to us and we will <br>
-    be happy to help.
+    
 
 
   </div>
 
-  <hr>
+  <div class="section-2">
+    <div class="s2-1">
 
-<a id="report-link" href="http://localhost:4200/Report">
+      <div class="s2-1-a" *ngFor="let w of weatherInfo">
 
-  <button id="report-button">
-    Report Outage
-  </button>
-
-</a>
-
-</div>
-
-
-</div>
-
-<div class="mid-circle">
-  <i id="map-icon" class="fa-solid fa-location-dot"></i>
-
-</div>
-
-<div class="map-dash">
-
-
- <!-- <div class="title">Service Map</div>-->
-
-
- <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
-
-
- <div class="container">
-  <div class="row">
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Geo ID</th>
-            <th>Census Tract</th>
-            <th>Region Code</th>
-            <th>Internet</th>
-            <th>Electricity</th>
-            <th>Zipcode</th>
-          </tr>
-        </thead>
-        <tbody id="myTable" *ngFor="let m of mapInfo">
-          <tr>
-            <td>{{m.geoID}}</td>
-            <td>{{m.regionName}}</td>
-            <td>{{m.regionCode}}</td>
-            <td>{{m.netStatus}}</td>
-            <td>{{m.elecStatus}}</td>
-            <td>{{m.zipCode}}</td>
-          </tr>
-          </tbody>
-          </table>
-          </div>
-          </div>
-          </div>
-
-
-</div>
-
-<div class="mid-circle">
-
-  <i id="weather-icon" class="fa-solid fa-temperature-half"></i>
-
-</div>
-
-<div class="radar-dash">
-
-  <div class="radar-container" >
-
-    <iframe id="nws-radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
-    width="350" height="350"></iframe>
-
-  </div>
-
-
-  <div class="widget" >
-            
-    <div class="left-panel panel" *ngFor="let w of weatherInfo">
- 
+        <div class="weather-info">
         <div class="city">
-            Lafayette, LA
-        </div>
-        <div class="temp">
-          {{w.temperature}}&deg;
-        </div>
-        <div class = "info">
-         <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
-        </div>
+          Lafayette, LA
+      </div>
+      <div class="temp">
+        {{w.temperature}}&deg;
+      </div>
+      <div class = "info">
+       <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
+
+      </div>
     </div>
-    <div class="right-panel panel">
-   <!--  <i id="wIcon" class={{iconClass}}></i> -->
+
+      <i id={{iconID}} class={{iconClass}}></i> 
+
     </div>
- 
- </div>
+
+    <div class="s2-1-b">
+      <i id="warningIcon" class="fa-solid fa-triangle-exclamation"></i>
+      <hr>
+      There are currently no weather<br>
+      advisories in your area.
+    
+
+    </div>
+
+    </div>
+
+    <div class="s2-2">
+      <div class="s2-2-a">
+        <br>
+        Have an issue with your services?<br>
+        Email us and make a report!<br>
+        We are always ready to help. <br>
+        Start by clicking the link on the right.<br>
+      </div>
+
+      <a href="https://appacadianapower.web.app/Report" class="s2-2-b">
+   
+      </a>
+      
+    </div>
+  </div>
 
 
- <!-- <div class="title">Weather Radar</div>-->
+  <div class="section-3">
+
+    <div class="s3-title">
+      Census Tract Service Map
+    </div>
+
+    <div class="s3-1">
+      <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
+    </div>
+
+    <div class="s3-2">
+      
+      <div class="map-table-container">
+        <table id="map-table">
+          <tr>
+            <tr>
+              <th>Geo ID</th>
+              <th>Census Tract</th>
+              <th>Region Code</th>
+              <th>Internet</th>
+              <th>Electricity</th>
+              <th>Zipcode</th>  
+          </tr>
+          <tbody id="map-body" *ngFor="let m of mapInfo">
+            <tr>
+              <td>{{m.geoID}}</td>
+              <td>{{m.regionName}}</td>
+              <td>{{m.regionCode}}</td>
+              <td>{{m.netStatus}}</td>
+              <td>{{m.elecStatus}}</td>
+              <td>{{m.zipCode}}</td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+
+      
+
+    </div>
 
 
-</div>
+  </div>
+
+  <div class="section-4">
+
+    
+    <iframe id="nws-radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
+    width="910" height="550"></iframe>
 
 
-<!--End dashboard-->
+  </div>
+
+
+
+
 </div>
