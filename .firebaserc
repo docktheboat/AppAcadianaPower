@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "appacadianapower"
+  },
+  "targets": {
+    "appacadianapower": {
+      "hosting": {
+        "AppAcadianaPower": [
+          "appacadianapower"
+        ]
+      }
+    }
+  }
+}
