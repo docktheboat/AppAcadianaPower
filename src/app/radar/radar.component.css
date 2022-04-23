@@ -1,0 +1,55 @@
+iframe{
+    height: 500px;
+    width: 80%;
+    border: none;
+    margin-left: 10%;
+}
+
+#current{
+    color: white;
+    background-color: rgb(51, 113, 237);
+}
+
+#tab:hover{
+    color: white;
+    background-color: rgb(51, 113, 237);
+  }
+
+  span{
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+  #home-icon{
+    color: rgb(51, 113, 237);
+  
+  }
+  
+  #map-icon{
+    color: rgb(131, 101, 75);
+  }
+  
+  #outage-icon{
+    color: black;
+  }
+  
+  #report-icon{
+    color: rgb(186, 70, 70);
+  }
+
+  /*----------*/
+
+#outage-icon:hover{
+  color:white;
+}
+
+#map-icon:hover{
+  color: white;
+}
+
+#home-icon:hover{
+  color: white;
+}
+
+#report-icon:hover{
+  color: white;
+}

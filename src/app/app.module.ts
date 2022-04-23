@@ -17,6 +17,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { EmailComponent } from './email/email.component';
+import { UseroutagesComponent } from './useroutages/useroutages.component';
+import { ServicemapComponent } from './servicemap/servicemap.component';
+import { RadarComponent } from './radar/radar.component';
 
 
 
@@ -27,7 +30,10 @@ import { EmailComponent } from './email/email.component';
     AppComponent,
     RegisterComponent,
     UserComponent,
-    EmailComponent
+    EmailComponent,
+    UseroutagesComponent,
+    ServicemapComponent,
+    RadarComponent
 
     
   ],

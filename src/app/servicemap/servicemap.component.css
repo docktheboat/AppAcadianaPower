@@ -1,0 +1,55 @@
+img{
+    height: 30%;
+    width: 60%;
+    margin-left: 20%;
+}
+
+#current{
+    color: white;
+    background-color: rgb(51, 113, 237);
+}
+
+#tab:hover{
+    color: white;
+    background-color: rgb(51, 113, 237);
+  }
+
+  span{
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+
+  #home-icon{
+    color: rgb(51, 113, 237);
+  
+  }
+  
+  #outage-icon{
+    color: black;
+  }
+  
+  #radar-icon{
+    color: rgb(85, 129, 65);
+  }
+  
+  #report-icon{
+    color: rgb(186, 70, 70);
+  }
+
+  /*----------*/
+
+#outage-icon:hover{
+  color:white;
+}
+
+#home-icon:hover{
+  color: white;
+}
+
+#radar-icon:hover{
+  color: white;
+}
+
+#report-icon:hover{
+  color: white;
+}

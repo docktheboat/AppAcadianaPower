@@ -14,12 +14,10 @@ import { OutageService } from '../outage/outage.service'
 })
 export class UserComponent implements OnInit{
     public weatherInfo : Weather[] | undefined
-    public mapInfo : CensusMap[] | undefined
     public iconClass : String | undefined
     public iconID : String | undefined
     public day : number | undefined
     public month : String | undefined
-    public mostRecentOutages : Outage[] | undefined 
     public months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
@@ -29,9 +27,7 @@ export class UserComponent implements OnInit{
 
     ngOnInit(): void {
         this.getWeather();
-        this.getAllMapInfo();
         this.setDate();
-        this.setMostRecentOutages();
     }
 
     public setDate(){
@@ -39,17 +35,6 @@ export class UserComponent implements OnInit{
         date.setHours(date.getHours() - 5); // UTC to CST
         this.day = date.getUTCDate();
         this.month = this.months[date.getMonth()].substring(0,3);
-    }
-
-    public setMostRecentOutages(){
-        this.outageService.getByCreation().subscribe(
-            (response : Outage[]) => {
-             this.mostRecentOutages = response;
-            },
-            (error : HttpErrorResponse) => {
-              /*alert(error.message)*/
-            }
-          )
     }
 
 
@@ -67,26 +52,7 @@ export class UserComponent implements OnInit{
         )
     }
 
-    public getAllMapInfo(){
-        this.mapService.allInfo().subscribe(
-            (response : CensusMap[]) =>{
-                this.mapInfo = response;
-            },
-            (error: HttpErrorResponse) => {
-                alert(error.message);
-            }
-        )
-    }
 
-    public getTractByZip(zipCode : number){
-        this.mapService.tractByZip(zipCode).subscribe(
-            (response : CensusMap[]) =>{
-                this.mapInfo = response;
-            },
-            (error: HttpErrorResponse) => {
-                alert(error.message);
-            }
-        )
-    }
+
 
 }
