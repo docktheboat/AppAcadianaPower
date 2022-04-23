@@ -4,6 +4,46 @@ body{
     /*background:#eee;*/
 }
 
+span{
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+
+  #home-icon{
+    color: rgb(51, 113, 237);
+  
+  }
+  
+  #map-icon{
+    color: rgb(131, 101, 75);
+  }
+  
+  #radar-icon{
+    color: rgb(85, 129, 65);
+  }
+  
+  #outage-icon{
+    color: black;
+  }
+
+  /*----------*/
+
+#outage-icon:hover{
+    color:white;
+  }
+  
+  #map-icon:hover{
+    color: white;
+  }
+  
+  #radar-icon:hover{
+    color: white;
+  }
+  
+  #home-icon:hover{
+    color: white;
+  }
+
 .container{
     margin-top: 0px;
     height: 65%;
@@ -56,6 +96,7 @@ body{
 
 .col-lg-7{
     box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
+    width: 80%;
 }
 
 #mailIcon{
@@ -63,20 +104,39 @@ body{
 }
 
 #noElec{
-    height: 100px;
-    width:120px;
+    height: 25%;
+    width: 25%;
 }
 
+/*-----------------*/
+
+#message-body{
+    width: 500px;
+}
+
+#email-box{
+    width: 350px;
+}
 
 
 h1{
-    margin-left: 120px;
-    margin-top: -60px;
-}
+    margin-left: 20%;
+    margin-top: -3%}
 
 #emailUS, #callUs{
     padding-bottom: 50px;
 }
+
+#current{
+    color: white;
+    background-color: rgb(51, 113, 237);
+}
+
+#tab:hover{
+    color: white;
+    background-color: rgb(51, 113, 237);
+  }
+
 
 #phoneIcon{
     color: black;
@@ -87,8 +147,8 @@ h1{
 }
 
 #messageBox{
-    width: 450px;
-    height: 150px;
+    height: 15%;
+    width: 75%;
 }
 #serviceArea, #zipCodeArea{
     width: 150px;
@@ -103,5 +163,5 @@ h1{
     margin-bottom: 15px;
 }
 #emailArea{
-    width: 280px;
+    width: 60%;
 }

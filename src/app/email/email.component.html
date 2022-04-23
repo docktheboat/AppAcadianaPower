@@ -1,3 +1,35 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3 ">
+             <div class="list-group ">
+
+
+                <a routerLink="/Dashboard" id="tab" class="list-group-item list-group-item-action">
+                    <span id="home-icon" class="material-symbols-outlined">home</span>Home</a>
+                <a routerLink="/outages" id="tab" class="list-group-item list-group-item-action">
+                    <span id="outage-icon" class="material-symbols-outlined">power_off</span>Outages</a>
+                <a routerLink="/map" id="tab" class="list-group-item list-group-item-action">
+                    <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
+                <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
+                    <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
+                <a routerLink="/Report" id="current" class="list-group-item list-group-item-action">
+                    <span class="material-symbols-outlined">report</span>Reporting</a> 
+
+
+
+            </div> 
+        </div>
+        <div class="col-md-9">
+
+            <router-outlet></router-outlet>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
 <body>
@@ -7,40 +39,7 @@
         <div class="row no-gutters">
           
 
-         <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
-
-            <div class="contactInfo">
-
-            <div class="emailUs">
-            Email Us Directly
-            <br>
-            <a href="mailto:acadianapowerandservices@gmail.com" id="mailIcon" class="fa-solid fa-envelope"></a> 
-            acadianapowerandservices@gmail.com
-            <hr>
-            </div>
-
-            <br>
-           
-           
-
-            <div class="callUs">
-            Give Us A Call
-            <br>
-            <i id="phoneIcon" class="fa-solid fa-phone"></i> +19036238706
-            <hr>
-            </div>
-
-            <br>
-            
-          
-
-            <div class="reviewUs">
-            <i id="starIcon" class="fa-solid fa-star"></i> Give us a review!
-            </div>
-
-        </div>
-
-            </div>
+     
     
             
             <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
@@ -63,7 +62,7 @@
                     </div>  
     
                         <div class="col-sm-6 mb-3">
-                            <div class="form-group">
+                            <div id="email-box" class="form-group">
                                 <label class="required-field" for="sender"></label>
                                 <input id="emailArea" ngModel name="sender" type="text" class="form-control"placeholder="Your Email">
                             </div>
@@ -71,7 +70,7 @@
     
     
                         <div class="col-sm-12 mb-3">
-                            <div class="form-group">
+                            <div id="message-body" class="form-group">
                                 <label class="required-field" for="message">Please give a brief description</label>
                                 <textarea id="messageBox" ngModel name="message" class="form-control" rows="4" placeholder="Hello, I'm having an issue with..."></textarea>
                             </div>
@@ -92,3 +91,8 @@
 </div>
 
 </body>
+
+
+        </div>
+    </div>
+</div>

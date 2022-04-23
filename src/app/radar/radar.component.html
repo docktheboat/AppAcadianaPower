@@ -1,0 +1,40 @@
+
+
+
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+                
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-3 ">
+                             <div class="list-group ">
+
+                                <a routerLink="/Dashboard" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="home-icon" class="material-symbols-outlined">home</span>Home</a>
+                                <a routerLink="/outages" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="outage-icon" class="material-symbols-outlined">power_off</span>Outages</a>
+                                <a routerLink="/map" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
+                                <a routerLink="/radar" id="current" class="list-group-item list-group-item-action">
+                                    <span class="material-symbols-outlined">radar</span>Weather Radar</a>
+                                <a routerLink="/Report" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="report-icon" class="material-symbols-outlined">report</span>Reporting</a> 
+
+					 
+
+                            </div> 
+                        </div>
+                        <div class="col-md-9">
+    
+                            <router-outlet></router-outlet>
+
+                            <iframe id="nws-radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
+                          ></iframe>
+
+                        </div>
+                    </div>
+                </div>

@@ -1,176 +1,115 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abel&family=Exo+2:wght@200&family=Open+Sans:wght@300&family=Roboto+Condensed&family=Rubik:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nobile&display=swap" rel="stylesheet">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3 ">
+             <div class="list-group ">
 
 
-<div class="my-dashboard">
+        <a routerLink="/Dashboard" id="current" class="list-group-item list-group-item-action">
+            <span class="material-symbols-outlined">home</span>Home</a>
+        <a routerLink="/outages" id="tab" class="list-group-item list-group-item-action">
+            <span id="outage-icon" class="material-symbols-outlined">power_off</span>Outages</a>
+        <a routerLink="/map" id="tab" class="list-group-item list-group-item-action">
+            <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
+        <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
+            <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
+        <a routerLink="/Report" id="tab" class="list-group-item list-group-item-action">
+            <span id="report-icon" class="material-symbols-outlined">report</span>Reporting</a> 
+                
+                     
 
-  <div class="title-section">
-    
-    <div class="title-name">
-      Welcome to the Acadiana Power Dashboard
-      <hr>
-    
+
+
+
+            </div> 
+        </div>
+        <div class="col-md-9">
+
+            <router-outlet></router-outlet>
+
+        
+        <div class="top">
+            <div class="t-1">
+                <div class="date">
+                    <span class="date-day">{{day}}</span>
+                    <span class="date-month">{{month}}</span>
+                    </div> 
+                <div class="main-title">
+                    Acadiana Power <br> <br> <br>
+                    Dashboard
+                </div>
+                
+
+            </div>
+            <div class="t-2" *ngFor="let w of weatherInfo"> 
+
+
+                    <div class="weather-info">
+                    <div class="city">
+                      Lafayette, LA
+                  </div>
+                  <div class="temp">
+                    {{w.temperature}}&deg;
+                  </div>
+                  <div class = "conditions">
+                   <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
+            
+                  </div>
+                </div>
+            
+                  <i id={{iconID}} class={{iconClass}}></i> 
+            
+            
+
+
+
+            </div>
+        </div>
+     
+        <div class="bottom">
+            <a href="mailto:acadianapowerandservices@gmail.com" class="b-1"> 
+               
+               <div class="icon"><i id="mail-icon" class="fa-solid fa-envelope"></i> </div> 
+                <div class="title">
+                    Email Us
+                    
+                </div>
+
+                <div class="info">
+                    acadianapowerand<br>services@gmail.com
+                </div>
+                
+            </a>
+            <a  class="b-2">
+                <div class="icon"><i id="phoneIcon" class="fa-solid fa-phone"></i></div>
+                <div class="title">
+                    Text Us
+                </div>
+
+                <div class="info">
+                    +19036238706
+                </div>
+                
+               
+                
+            </a>
+                
+            <a target="_blank" href="https://www.weather.gov/erh/ghwo?wfo=lix" class="b-3"> 
+                <div class="icon">
+                    <i id="warningIcon" class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div class="title">
+                    Weather <br>
+                    Advisories
+                </div>
+                
+                
+            </a>
+
+        </div>
+
+        </div>
     </div>
-
-    <div class="title-msg">
-      Below you will find outage notifications,
-      <br>
-      a service map with a table of service info,
-      <br>
-      and a radar along with your current weather.<br>
-      Thank you and <br>
-      we appericiate your business! <br>
-  
-
-    </div>
-
-
-
-  </div>
-
-
-  <div class="section-1">
-
-    <div class="out-table-title">
-        Local Outage Notifications
-        <br>
-        <br>
-    </div>
-
-    <div class="date">
-      <span class="date-day">{{day}}</span>
-      <span class="date-month">{{month}}</span>
-      </div>      
-
-
-    <div class="table-container">
-    <table id="outage-table">
-      <tr>
-        <tr>
-          <th>Type</th>
-          <th>Created At</th>
-          <th>Recovery Time</th>
-          <th>Zipcode</th>    
-      </tr>
-      <tbody *ngFor="let out of mostRecentOutages">
-      <tr>
-        <td>{{out.outageType}}</td>
-        <td>{{out.creationTime}}</td>
-        <td>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</td>
-        <td>{{out.zipCode}}</td>  
-      </tr>
-    </tbody>
-    </table>
-  </div>
-    
-
-
-  </div>
-
-  <div class="section-2">
-    <div class="s2-1">
-
-      <div class="s2-1-a" *ngFor="let w of weatherInfo">
-
-        <div class="weather-info">
-        <div class="city">
-          Lafayette, LA
-      </div>
-      <div class="temp">
-        {{w.temperature}}&deg;
-      </div>
-      <div class = "info">
-       <i class="fa-solid fa-wind"></i> {{w.windSpeed}}mph | {{w.conditions}}
-
-      </div>
-    </div>
-
-      <i id={{iconID}} class={{iconClass}}></i> 
-
-    </div>
-
-    <div class="s2-1-b">
-      <i id="warningIcon" class="fa-solid fa-triangle-exclamation"></i>
-      <hr>
-      There are currently no weather<br>
-      advisories in your area.
-    
-
-    </div>
-
-    </div>
-
-    <div class="s2-2">
-      <div class="s2-2-a">
-        <br>
-        Have an issue with your services?<br>
-        Email us and make a report!<br>
-        We are always ready to help. <br>
-        Start by clicking the link on the right.<br>
-      </div>
-
-      <a href="https://appacadianapower.web.app/Report" class="s2-2-b">
-   
-      </a>
-      
-    </div>
-  </div>
-
-
-  <div class="section-3">
-
-    <div class="s3-title">
-      Census Tract Service Map
-    </div>
-
-    <div class="s3-1">
-      <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
-    </div>
-
-    <div class="s3-2">
-      
-      <div class="map-table-container">
-        <table id="map-table">
-          <tr>
-            <tr>
-              <th>Geo ID</th>
-              <th>Census Tract</th>
-              <th>Region Code</th>
-              <th>Internet</th>
-              <th>Electricity</th>
-              <th>Zipcode</th>  
-          </tr>
-          <tbody id="map-body" *ngFor="let m of mapInfo">
-            <tr>
-              <td>{{m.geoID}}</td>
-              <td>{{m.regionName}}</td>
-              <td>{{m.regionCode}}</td>
-              <td>{{m.netStatus}}</td>
-              <td>{{m.elecStatus}}</td>
-              <td>{{m.zipCode}}</td>
-            </tr>
-            </tbody>
-        </table>
-      </div>
-
-      
-
-    </div>
-
-
-  </div>
-
-  <div class="section-4">
-
-    
-    <iframe id="nws-radar" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjk3MSwzMC4xNjddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OS40MzE2NzM2OTU4MTYwMjV9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6dHJ1ZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjoxfX0%3D#/" 
-    width="910" height="550"></iframe>
-
-
-  </div>
-
-
-
-
 </div>

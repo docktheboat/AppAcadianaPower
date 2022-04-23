@@ -1,0 +1,87 @@
+
+
+
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+                
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-3 ">
+                             <div class="list-group ">
+
+                                <a routerLink="/Dashboard" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="home-icon" class="material-symbols-outlined">home</span>Home</a>
+                                <a routerLink="/outages" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="outage-icon" class="material-symbols-outlined">power_off</span>Outages</a>
+                                <a routerLink="/map" id="current" class="list-group-item list-group-item-action">
+                                    <span class="material-symbols-outlined">map</span>Service Map</a>
+                                <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="rada-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
+                                <a routerLink="/Report" id="tab" class="list-group-item list-group-item-action">
+                                    <span id="report-icon" class="material-symbols-outlined">report</span>Reporting</a> 
+                        
+
+                            </div> 
+                        </div>
+                        <div class="col-md-9">
+    
+                            <router-outlet></router-outlet>
+
+                            <div class="s3-1">
+                                <img id="mapImg" src="/assets/imgs/census_map.png" alt="image">
+                              </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-2 border-right">
+                                            <h4>Service Map Information</h4>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table table-hover ">
+                                                <thead class="bg-light ">
+                                                    <tr>
+                                                        <th>Geo ID</th>
+                                                        <th>Census Tract</th>
+                                                        <th>Region Code</th>
+                                                        <th>Internet</th>
+                                                        <th>Electricity</th>
+                                                        <th>Zipcode</th>  
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="map-body" *ngFor="let m of mapInfo">
+                                                    <tr>
+                                                      <td>{{m.geoID}}</td>
+                                                      <td>{{m.regionName}}</td>
+                                                      <td>{{m.regionCode}}</td>
+                                                      <td>{{m.netStatus}}</td>
+                                                      <td>{{m.elecStatus}}</td>
+                                                      <td>{{m.zipCode}}</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
