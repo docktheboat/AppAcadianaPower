@@ -35,6 +35,15 @@ export class OutageComponent implements OnInit{
     )
   }
 
+  public isResolved(recovery : number[]) : String {
+    let hrs = recovery[0]
+    let mins = recovery[1]
+    if ((hrs + mins) <= 0 ){
+      return "RESOLVED";
+    } 
+    return hrs+"hrs/"+mins+"mins";
+  }
+
   public getOutagesByRecovery() {
     this.outageService.getByRecovery().subscribe(
       (response : Outage[]) => {

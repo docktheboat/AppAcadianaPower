@@ -15,7 +15,6 @@ const routes: Routes = [
     {path: 'Dashboard', component: UserComponent},
     {path: 'outages', component: UseroutagesComponent},
     {path: 'map', component: ServicemapComponent},
-    {path: 'Report', component: EmailComponent},
     {path: 'radar', component: RadarComponent},
     {path: '**', redirectTo: ''}
 ];

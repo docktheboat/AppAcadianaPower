@@ -13,9 +13,7 @@
         <a routerLink="/map" id="tab" class="list-group-item list-group-item-action">
             <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
         <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
-            <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
-        <a routerLink="/Report" id="tab" class="list-group-item list-group-item-action">
-            <span id="report-icon" class="material-symbols-outlined">report</span>Reporting</a> 
+            <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a> 
                 
                      
 
@@ -81,17 +79,11 @@
                 </div>
                 
             </a>
-            <a  class="b-2">
-                <div class="icon"><i id="phoneIcon" class="fa-solid fa-phone"></i></div>
+            <a (click)="openReportDialog()" class="b-2">
+                <div class="icon"><span id="report-icon" class="material-symbols-outlined">report</span></div>
                 <div class="title">
-                    Text Us
-                </div>
-
-                <div class="info">
-                    +19036238706
-                </div>
-                
-               
+                    Report Outage
+                </div> 
                 
             </a>
                 

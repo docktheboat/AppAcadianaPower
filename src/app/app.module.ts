@@ -20,6 +20,7 @@ import { EmailComponent } from './email/email.component';
 import { UseroutagesComponent } from './useroutages/useroutages.component';
 import { ServicemapComponent } from './servicemap/servicemap.component';
 import { RadarComponent } from './radar/radar.component';
+import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 
 
 
@@ -33,9 +34,12 @@ import { RadarComponent } from './radar/radar.component';
     EmailComponent,
     UseroutagesComponent,
     ServicemapComponent,
-    RadarComponent
-
-    
+    RadarComponent,
+    AlertConfirmComponent
+  ],
+  entryComponents: [
+    EmailComponent,
+    AlertConfirmComponent
   ],
   imports: [
     BrowserModule,

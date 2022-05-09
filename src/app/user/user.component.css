@@ -145,6 +145,12 @@ span{
 
 #report-icon{
   color: rgb(186, 70, 70);
+  font-size: 40px;
+}
+
+#mail-icon{
+  font-size: 30px;
+  color: #4e73e5;
 }
 
 /*----------*/
@@ -158,10 +164,6 @@ span{
 }
 
 #radar-icon:hover{
-  color: white;
-}
-
-#report-icon:hover{
   color: white;
 }
 
@@ -230,7 +232,7 @@ span{
   padding-bottom: 10px;
 }
 #warningIcon{
-  color: rgb(234, 58, 58);
+  color: rgb(223, 223, 109);
   font-size: 30px;
   margin-top: 10px;
 }
