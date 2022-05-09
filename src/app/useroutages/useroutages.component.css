@@ -26,9 +26,6 @@
   color: rgb(85, 129, 65);
 }
 
-#report-icon{
-  color: rgb(186, 70, 70);
-}
 
 /*----------*/
 
@@ -41,9 +38,5 @@
 }
 
 #radar-icon:hover{
-  color: white;
-}
-
-#report-icon:hover{
   color: white;
 }

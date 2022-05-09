@@ -18,8 +18,7 @@
                     <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
                 <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
                     <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
-                <a routerLink="/Report" id="tab" class="list-group-item list-group-item-action">
-                    <span id="report-icon" class="material-symbols-outlined">report</span>Reporting</a>       
+            
 
 
 
@@ -55,7 +54,7 @@
                         <tr>
                           <td>{{out.outageType}}</td>
                           <td>{{out.creationTime}}</td>
-                          <td>{{out.recoveryTime[0]}}hrs/{{out.recoveryTime[1]}}mins</td>
+                         <td>{{isResolved(out.recoveryTime)}}</td>
                           <td>{{out.zipCode}}</td>  
                         </tr>
                       </tbody>

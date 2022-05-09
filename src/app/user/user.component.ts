@@ -7,6 +7,8 @@ import { CensusMap } from '../map/map'
 import { MapService } from '../map/map.service'
 import { Outage } from '../outage/outage'
 import { OutageService } from '../outage/outage.service'
+import { EmailComponent } from '../email/email.component'
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
     templateUrl: 'user.component.html',
@@ -23,7 +25,8 @@ export class UserComponent implements OnInit{
 ];
 
     constructor(private weatherService: WeatherService,
-        private mapService: MapService, private outageService : OutageService){}
+        private mapService: MapService, private outageService : OutageService,
+        public dialog : MatDialog){}
 
     ngOnInit(): void {
         this.getWeather();
@@ -37,6 +40,9 @@ export class UserComponent implements OnInit{
         this.month = this.months[date.getMonth()].substring(0,3);
     }
 
+    public openReportDialog(){
+        this.dialog.open(EmailComponent)
+      }
 
 
     public getWeather(){

@@ -1,167 +1,44 @@
-body{
-
-    margin-top: 0;
-    /*background:#eee;*/
+.main{
+    width: 400px;
+    background-color: white;
+    float: right;
 }
 
-span{
-    vertical-align: middle;
-    padding-right: 5px;
-  }
-
-  #home-icon{
-    color: rgb(51, 113, 237);
-  
-  }
-  
-  #map-icon{
-    color: rgb(131, 101, 75);
-  }
-  
-  #radar-icon{
-    color: rgb(85, 129, 65);
-  }
-  
-  #outage-icon{
-    color: black;
-  }
-
-  /*----------*/
-
-#outage-icon:hover{
-    color:white;
-  }
-  
-  #map-icon:hover{
-    color: white;
-  }
-  
-  #radar-icon:hover{
-    color: white;
-  }
-  
-  #home-icon:hover{
-    color: white;
-  }
-
-.container{
-    margin-top: 0px;
-    height: 65%;
+#serviceArea input{
+    width: 100%;
 }
 
-.contact-info__wrapper {
-    overflow: hidden;
-    border-radius: .625rem .625rem 0 0
+#serviceArea{
+    float: left;
+    width: 40%;
+    margin-top: 2%;
 }
 
-@media (min-width: 1024px) {
-    .contact-info__wrapper {
-        border-radius: 0 .625rem .625rem 0;
-        padding: 5rem !important
-    }
-}
-.contact-info__list span.position-absolute {
-    left: 0
-}
-.z-index-101 {
-    z-index: 101;
-}
-.list-style--none {
-    list-style: none;
-}
-.contact__wrapper {
-    background-color: #fff;
-    border-radius: 0 0 .625rem .625rem
+#zipCodeArea input{
+    width: 100%;
 }
 
-@media (min-width: 1024px) {
-    .contact__wrapper {
-        border-radius: .625rem 0 .625rem .625rem
-    }
-}
-@media (min-width: 1024px) {
-    .contact-form__wrapper {
-        padding: 5rem !important
-    }
-}
-.shadow-lg, .shadow-lg--on-hover:hover {
-    box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
-}
-
-.col-lg-5{
-    background-image: linear-gradient(to right, rgb(82, 82, 207) , rgb(57, 57, 163));
-    box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
-    color: whitesmoke
-}
-
-.col-lg-7{
-    box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
-    width: 80%;
-}
-
-#mailIcon{
-    color: wheat;
-}
-
-#noElec{
-    height: 25%;
-    width: 25%;
-}
-
-/*-----------------*/
-
-#message-body{
-    width: 500px;
+#zipCodeArea{
+    float: left;
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 2%;
 }
 
 #email-box{
-    width: 350px;
-}
-
-
-h1{
-    margin-left: 20%;
-    margin-top: -3%}
-
-#emailUS, #callUs{
-    padding-bottom: 50px;
-}
-
-#current{
-    color: white;
-    background-color: rgb(51, 113, 237);
-}
-
-#tab:hover{
-    color: white;
-    background-color: rgb(51, 113, 237);
-  }
-
-
-#phoneIcon{
-    color: black;
-}
-
-#starIcon{
-    color: rgb(252, 252, 99);
-}
-
-#messageBox{
-    height: 15%;
-    width: 75%;
-}
-#serviceArea, #zipCodeArea{
-    width: 150px;
-    float: left;
-    
-}
-#zipCodeArea{
-    margin-left: 50px;
-}
-.zipAndService{
-    margin-left: 18.25px;
-    margin-bottom: 15px;
-}
-#emailArea{
     width: 60%;
+}
+
+#message-body{
+    width: 90%;
+}
+
+#cancel{
+    cursor: pointer;
+    font-size: 40px;
+    float: right;
+    margin-right: 10%;
+}
+#cancel:hover{
+    color: rgb(216, 68, 68);
 }

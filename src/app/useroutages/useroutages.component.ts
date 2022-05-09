@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { OutageComponent } from '../outage';
 import { Outage } from '../outage/outage';
 import { OutageService } from '../outage/outage.service';
 
@@ -11,7 +12,7 @@ import { OutageService } from '../outage/outage.service';
 export class UseroutagesComponent implements OnInit {
   public outages : Outage[] | undefined
 
-  constructor(private outageService : OutageService ) { }
+  constructor(private outageService : OutageService) { }
 
   ngOnInit(): void {
     this.getOutages();
@@ -28,5 +29,16 @@ export class UseroutagesComponent implements OnInit {
     )
 
   }
+
+  public isResolved(recovery : number[]) : String {
+    let hrs = recovery[0]
+    let mins = recovery[1]
+    if ((hrs + mins) <= 0 ){
+      return "RESOLVED";
+    } 
+    return hrs+"hrs/"+mins+"mins";
+  }
+
+
 
 }

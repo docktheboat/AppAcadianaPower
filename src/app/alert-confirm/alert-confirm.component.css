@@ -1,0 +1,12 @@
+div{
+    text-align: center;
+    font-size: 15px;
+    color: rgb(91, 89, 89);
+}
+#cancel{
+    cursor: pointer;
+    font-size: 30px;
+}
+#cancel:hover{
+    color: rgb(216, 68, 68);
+}

@@ -1,98 +1,55 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+    <div class="main">            
+        <form action="#" class="report-form" novalidate="novalidate">
+  
+                <form #emailForm="ngForm" (ngSubmit)="reportOutage(emailForm)" >
 
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-3 ">
-             <div class="list-group ">
-
-
-                <a routerLink="/Dashboard" id="tab" class="list-group-item list-group-item-action">
-                    <span id="home-icon" class="material-symbols-outlined">home</span>Home</a>
-                <a routerLink="/outages" id="tab" class="list-group-item list-group-item-action">
-                    <span id="outage-icon" class="material-symbols-outlined">power_off</span>Outages</a>
-                <a routerLink="/map" id="tab" class="list-group-item list-group-item-action">
-                    <span id="map-icon" class="material-symbols-outlined">map</span>Service Map</a>
-                <a routerLink="/radar" id="tab" class="list-group-item list-group-item-action">
-                    <span id="radar-icon" class="material-symbols-outlined">radar</span>Weather Radar</a>
-                <a routerLink="/Report" id="current" class="list-group-item list-group-item-action">
-                    <span class="material-symbols-outlined">report</span>Reporting</a> 
-
-
-
-            </div> 
-        </div>
-        <div class="col-md-9">
-
-            <router-outlet></router-outlet>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-
-<body>
-<div class="container">
-    <div class="contact__wrapper shadow-lg mt-n9">
-        
-        <div class="row no-gutters">
-          
-
-     
-    
-            
-            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
-                <h1>Report An Outage  <img id="noElec" src="/assets/imgs/noElec.jpg" alt="image"></h1>
-                <form action="#" class="contact-form form-validate" novalidate="novalidate">
-                    <div class="row">
-                        <form #emailForm="ngForm" (ngSubmit)="reportOutage(emailForm)" >
-
-                          <div class="zipAndService">
-                            <div class="form-group">
-                                <label class="required-field" for="service"></label>
-                                <input id="serviceArea" ngModel name="service" type="text" class="form-control"  placeholder="Your Service">
-                            
-                            
-                                <label class="required-field" for="zipCode"></label>
-                                <input id="zipCodeArea" ngModel name="zipCode" type="number" class="form-control"placeholder="Your Zipcode">
-                            </div> 
-
-
-                    </div>  
-    
-                        <div class="col-sm-6 mb-3">
-                            <div id="email-box" class="form-group">
-                                <label class="required-field" for="sender"></label>
-                                <input id="emailArea" ngModel name="sender" type="text" class="form-control"placeholder="Your Email">
-                            </div>
-                        </div>
-    
-    
-                        <div class="col-sm-12 mb-3">
-                            <div id="message-body" class="form-group">
-                                <label class="required-field" for="message">Please give a brief description</label>
-                                <textarea id="messageBox" ngModel name="message" class="form-control" rows="4" placeholder="Hello, I'm having an issue with..."></textarea>
-                            </div>
-                        </div>
-    
-                        <div class="col-sm-12 mb-3">
-                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
-                    </form>
-    
+                
+                    <div id="serviceArea" class="form-group">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Service Type</mat-label>
+                        <mat-select ngModel name="service">
+                          <mat-option *ngFor="let type of serviceTypes" [value]="type.value">
+                            {{type.value}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                
                     </div>
-                </form>
-            </div>
-    
-        </div>
-    </div>
-</div>
 
-</body>
+                    <div id="zipCodeArea" class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Service Area</mat-label>
+                            <mat-select ngModel name="zipCode">
+                              <mat-option *ngFor="let area of serviceAreas" [value]="area.value">
+                                {{area.value}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
+                    </div>
 
-        </div>
-    </div>
+                    <div id="email-box" class="form-group">
+                        <input ngModel name="sender" type="text" class="form-control"placeholder="Email">
+                    </div>
+        
+
+                    <div id="message-body" class="form-group">
+                        <label class="required-field" for="message">Please give a brief description</label>
+                        <textarea id="messageBox" ngModel name="message" class="form-control" rows="4" placeholder="Hello, I'm having an issue with..."></textarea>
+                    </div>
+                
+
+                <div class="bottom-div">
+                    <button (click)="openAlertDialog()" type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <span (click)="closeReportDialog()" id="cancel" class="material-symbols-outlined">
+                        cancel
+                    </span>
+                </div>
+
+            </form>
+
+        
+        </form>
+
 </div>
